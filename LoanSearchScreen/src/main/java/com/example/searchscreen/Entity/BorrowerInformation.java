@@ -10,8 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="borrower_info")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler" , "loans"})
 public class BorrowerInformation {
 	@Id
 	@Column(name="borrower_id")

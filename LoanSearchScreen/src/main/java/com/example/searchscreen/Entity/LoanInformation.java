@@ -64,7 +64,17 @@ public class LoanInformation {
 	public void setBorrower(BorrowerInformation borrower) {
 		this.borrower = borrower;
 	}
-	
+	public LoanInformation() {
+		
+	}
+		
+	// constructor using fields
+	public LoanInformation(int loanId, String loanType, String loanTerm, double loanAmount) {
+			this.loanId = loanId;
+			this.loanType = loanType;
+			this.loanTerm = loanTerm;
+			this.loanAmount = loanAmount;
+	}
 	
 	
 }
