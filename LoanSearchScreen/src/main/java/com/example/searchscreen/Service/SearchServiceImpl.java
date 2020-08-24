@@ -24,7 +24,8 @@ public class SearchServiceImpl implements SearchService {
 	}
 
 	
-	 @Override public LoanInformation findByBorrowerName(String borrowerName) {
+	 @Override
+	 public LoanInformation findByBorrowerName(String borrowerName) {
 	    return searchrepository.findByBorrowerName(borrowerName); 
 	    }
 	 

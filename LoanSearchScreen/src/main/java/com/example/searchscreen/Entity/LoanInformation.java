@@ -5,6 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 @Entity
@@ -12,6 +14,7 @@ import javax.persistence.JoinColumn;
 public class LoanInformation {
 
 	@Id
+	@GeneratedValue(strategy =GenerationType.IDENTITY)
 	@Column(name="loan_id")
 	private int loanId;
 	@Column(name="loan_type")

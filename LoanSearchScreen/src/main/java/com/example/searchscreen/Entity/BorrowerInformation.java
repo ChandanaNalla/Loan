@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -17,10 +19,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler" , "loans"})
 public class BorrowerInformation {
 	@Id
+	@GeneratedValue(strategy =GenerationType.AUTO)
 	@Column(name="borrower_id")
 private int id;
 	@Column(name="borrower_name")
 private String borrowerName;
+	
 @OneToMany(mappedBy="borrower",cascade=CascadeType.ALL)
 private List<LoanInformation> loans;
 public int getId() {
@@ -44,10 +48,10 @@ public void setLoans(List<LoanInformation> loans) {
 public BorrowerInformation() {
 	
 }
-public BorrowerInformation(String borrowerName, List<LoanInformation> loans) {
+public BorrowerInformation(String borrowerName) {
 	
 	this.borrowerName = borrowerName;
-	this.loans = loans;
+	
 }
 
 public void addLoan(LoanInformation loan) {
@@ -55,6 +59,6 @@ public void addLoan(LoanInformation loan) {
 		loans=new ArrayList<>();
 	}
 	loans.add(loan);
-	((LoanInformation) loans).setBorrower(this);
+	loan.setBorrower(this);
 }
 }
