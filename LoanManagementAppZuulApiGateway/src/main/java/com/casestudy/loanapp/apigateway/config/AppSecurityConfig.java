@@ -24,6 +24,7 @@ import com.casestudy.loanapp.apigateway.jwt.AuthTokenFilter;
 
 @Configuration
 @EnableWebSecurity
+//to provide security on methods
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class AppSecurityConfig  extends WebSecurityConfigurerAdapter{
 	
@@ -48,12 +49,12 @@ public void configure(AuthenticationManagerBuilder authenticationManagerBuilder)
 public AuthenticationManager authenticationManagerBean() throws Exception {
 	return super.authenticationManagerBean();
 }
-
+//To provide Dao Authentication
 @Bean
 public PasswordEncoder passwordEncoder() {
 	return NoOpPasswordEncoder.getInstance();
 }
-
+// To authenticate all users
 @Override
 protected void configure(HttpSecurity http) throws Exception {
 	http.cors().and().csrf().disable()

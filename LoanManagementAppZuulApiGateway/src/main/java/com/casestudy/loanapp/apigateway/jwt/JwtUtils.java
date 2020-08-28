@@ -21,7 +21,7 @@ public class JwtUtils {
 
 	@Value("${com.example.jwtExpirationMs}")
 	private int jwtExpirationMs;
-
+//generating jwt from username,date,expiration
 	public String generateJwtToken(Authentication authentication) {
 
 		UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();

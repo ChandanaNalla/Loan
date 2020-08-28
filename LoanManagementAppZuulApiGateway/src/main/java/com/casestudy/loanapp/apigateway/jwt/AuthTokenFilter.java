@@ -28,7 +28,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 	private MyUserDetailsService userDetailsService;
 
 	private static final Logger logger = LoggerFactory.getLogger(AuthTokenFilter.class);
-
+//checking the whether the request has jwt and validating it
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {

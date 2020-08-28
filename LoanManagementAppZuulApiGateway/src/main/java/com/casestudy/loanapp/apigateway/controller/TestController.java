@@ -12,7 +12,7 @@ public class TestController {
 	public String allAccess() {
 		return "Public Content.";
 	}
-	
+	//Testing the roles
 	@GetMapping("/user")
 	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public String userAccess() {
